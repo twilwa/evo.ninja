@@ -1,0 +1,33 @@
+namespace: evo.ninja
+evo.ninja:
+  defines: runnable
+  metadata:
+    name: evo.ninja
+    description: >-
+      It's a application that assists in decision-making processes and trend
+      prediction using AI.
+    icon: https://emojiapi.dev/api/v1/thought_balloon.svg
+  containers:
+    evo.ninja:
+      build: .
+  variables:
+    openai-api-key:
+      env: OPENAI_API_KEY
+      type: string
+      description: API key for OpenAI service.
+      value: '!!!SETME!!!'
+    gpt-model:
+      env: GPT_MODEL
+      type: string
+      description: GPT model to be used in the OpenAI service.
+      value: text-davinci-003
+    context-window-tokens:
+      env: CONTEXT_WINDOW_TOKENS
+      type: int
+      description: The number of tokens for the context window in the OpenAI service.
+      value: 4000
+    max-response-tokens:
+      env: MAX_RESPONSE_TOKENS
+      type: int
+      description: The maximum number of response tokens in the OpenAI service.
+      value: 4096
